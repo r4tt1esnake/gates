@@ -14,9 +14,9 @@ int main() {
 	int* gateArr;
 	gateArr = new int[gateNum];
 
-	bool airportClosed = false;
-
 	memset(gateArr, 0, gateNum * sizeof(int));
+
+	bool airportClosed = false;
 
 	for(int i = 0; i < planeNum; i++) {
 
@@ -24,16 +24,16 @@ int main() {
 			break;
 		}
 
-		for(int j = requiredDockArr[i] - 1; j > 0; j--) {
+		for(int j = requiredDockArr[i] - 1; j >= 0; j--) {
 			if(gateArr[j] == 0) {
 				gateArr[j]++;
 				break;
 			}
-			if(j == 0) {
+			if(j == 0 && gateArr[0] != 0) {
 				airportClosed = true;
 			}
 		}
-		
+
 	}
 
 	int count = 0;
@@ -53,7 +53,7 @@ int main() {
 void getInput() {
 
 	std::ifstream file;
-	file.open("s3.2.in");
+	file.open("s3.4.in");
 
 	file >> gateNum;
 	file >> planeNum;
