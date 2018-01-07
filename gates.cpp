@@ -19,7 +19,7 @@ int main() {
 	}
 
 	for(int i = 0; i < planeNum; i++) {
-		for(int j = requiredDockArr[planeNum]; j > 0; j--) {
+		for(int j = requiredDockArr[i] - 1; j > 0; j--) {
 			if(gateArr[j] == 0) {
 				gateArr[j]++;
 				break;
@@ -37,7 +37,6 @@ int main() {
 
 	std::printf("%d\n", count);
 
-	delete [] requiredDockArr;
 	delete [] gateArr;
 
 }
