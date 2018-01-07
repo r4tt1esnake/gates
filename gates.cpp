@@ -14,17 +14,26 @@ int main() {
 	int* gateArr;
 	gateArr = new int[gateNum];
 
-	for(int i = 0; i < gateNum; i++) {
-		gateArr[i] = 0;
-	}
+	bool airportClosed = false;
+
+	memset(gateArr, 0, gateNum * sizeof(int));
 
 	for(int i = 0; i < planeNum; i++) {
+
+		if(airportClosed) {
+			break;
+		}
+
 		for(int j = requiredDockArr[i] - 1; j > 0; j--) {
 			if(gateArr[j] == 0) {
 				gateArr[j]++;
 				break;
 			}
+			if(j == 0) {
+				airportClosed = true;
+			}
 		}
+		
 	}
 
 	int count = 0;
