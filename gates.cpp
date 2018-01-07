@@ -53,7 +53,7 @@ int main() {
 void getInput() {
 
 	std::ifstream file;
-	file.open("s3.4.in");
+	file.open("s3.10.in");
 
 	file >> gateNum;
 	file >> planeNum;
